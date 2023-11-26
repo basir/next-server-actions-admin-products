@@ -13,7 +13,7 @@ export default function CreateForm() {
   const ref = useRef<HTMLFormElement>(null)
   useEffect(() => {
     if (state.message.indexOf('Created product') === 0) {
-      document.getElementById('my_modal_3')!.close()
+      ;(document.getElementById('my_modal_3')! as any).close()
       ref.current?.reset()
       toast(state.message)
     } else if (state.message) {
@@ -25,7 +25,9 @@ export default function CreateForm() {
     <div>
       <button
         className="btn btn-primary"
-        onClick={() => document.getElementById('my_modal_3')!.showModal()}
+        onClick={() =>
+          (document.getElementById('my_modal_3')! as any).showModal()
+        }
       >
         Create Product
       </button>
@@ -75,7 +77,9 @@ export default function CreateForm() {
             <button
               type="button"
               className="btn btn-ghost"
-              onClick={() => document.getElementById('my_modal_3').close()}
+              onClick={() =>
+                (document.getElementById('my_modal_3') as any).close()
+              }
             >
               Back
             </button>
