@@ -13,7 +13,7 @@ export default function CreateForm() {
   const ref = useRef<HTMLFormElement>(null)
   useEffect(() => {
     if (state.message.indexOf('Created product') === 0) {
-      ;(document.getElementById('my_modal_3')! as any).close()
+      ;(document.getElementById('my_modal_3') as any)!.close()
       ref.current?.reset()
       toast(state.message)
     } else if (state.message) {
